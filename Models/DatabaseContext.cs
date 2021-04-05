@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using GameNight.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Gamenight.Models
+
 {
+
     public partial class DatabaseContext : DbContext
     {
         // Change this if you want to have a different database name in development
@@ -14,6 +17,9 @@ namespace Gamenight.Models
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
         // Add database tables here
+
+
+        public DbSet<Game> Games { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
